@@ -1,0 +1,100 @@
+cabal-version: 2.4
+name:          numhask-massive
+version:       0.0.1
+synopsis: See readme.md
+description: See readme.md for description.
+category: project
+author: Tony Day
+maintainer: tonyday567@gmail.com
+copyright: Tony Day (c) AfterTimes
+license: BSD-3-Clause
+homepage: https://github.com/tonyday567/numhask-massive#readme
+bug-reports: https://github.com/tonyday567/numhask-massive/issues
+build-type: Simple
+source-repository head
+  type: git
+  location: https://github.com/tonyday567/numhask-massive
+
+library
+  hs-source-dirs:
+    src
+  default-extensions:
+    NoImplicitPrelude
+    NegativeLiterals
+    OverloadedStrings
+    UnicodeSyntax
+  ghc-options:
+    -Wall
+    -Wcompat
+    -Wincomplete-record-updates
+    -Wincomplete-uni-patterns
+    -Wredundant-constraints
+  build-depends:
+    adjunctions >=4.0 && <5,
+    base >=4.7 && <5,
+    box >= 0.5 && < 0.6,
+    box-csv >= 0.0.1 && < 0.1,
+    box-socket >= 0.0.1 && < 0.1,
+    chart-svg >= 0.1.1 && < 0.2,
+    concurrency >= 1.11,
+    distributive >=0.4 && <0.7,
+    foldl >= 1.4,
+    lucid,
+    lens,
+    numhask >= 0.6 && < 0.7,
+    numhask-array >= 0.7 && < 0.8,
+    numhask-space >= 0.5 && < 0.6,
+    perf >= 0.7 && < 0.8,
+    text >= 1.2,
+    transformers >= 0.5,
+    unordered-containers,
+    web-rep >= 0.6 && < 0.7,
+    massiv >= 0.5.3.2,
+    vector,
+  exposed-modules:
+    NumHask.Array.Massive
+  other-modules:
+  default-language: Haskell2010
+
+executable numhask-massive
+  main-is: numhask-massive.hs
+  hs-source-dirs: app
+  build-depends:
+    base >= 4.7 && < 5,
+    numhask >= 0.6 && < 0.7,
+    numhask-massive
+  default-language: Haskell2010
+  default-extensions:
+    NegativeLiterals
+    NoImplicitPrelude
+    OverloadedStrings
+    UnicodeSyntax
+  ghc-options:
+    -funbox-strict-fields
+    -fforce-recomp
+    -threaded
+    -rtsopts
+    -with-rtsopts=-N
+
+test-suite test
+  type: exitcode-stdio-1.0
+  main-is: test.hs
+  hs-source-dirs:
+    test
+  build-depends:
+    base >=4.7 && <5,
+    doctest,
+    numhask >= 0.6 && < 0.7,
+    numhask-massive
+  default-language: Haskell2010
+  default-extensions:
+    NoImplicitPrelude
+    NegativeLiterals
+    OverloadedStrings
+    UnicodeSyntax
+  ghc-options:
+    -Wall
+    -Wcompat
+    -Wincomplete-record-updates
+    -Wincomplete-uni-patterns
+    -Wredundant-constraints

@@ -1,0 +1,8 @@
+cradle:
+  stack:
+    - path: "./app/numhask-massive.hs"
+      component: "numhask-massive:exe:numhask-massive"
+    - path: "./src"
+      component: "numhask-massive:lib"
+    - path: "./test/numhask-massive.hs"
+      component: "numhask-massive:test:numhask-massive"
