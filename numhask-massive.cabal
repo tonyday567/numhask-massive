@@ -32,69 +32,13 @@ library
   build-depends:
     adjunctions >=4.0 && <5,
     base >=4.7 && <5,
-    box >= 0.5 && < 0.6,
-    box-csv >= 0.0.1 && < 0.1,
-    box-socket >= 0.0.1 && < 0.1,
-    chart-svg >= 0.1.1 && < 0.2,
-    concurrency >= 1.11,
     distributive >=0.4 && <0.7,
-    foldl >= 1.4,
-    lucid,
-    lens,
-    numhask >= 0.6 && < 0.7,
-    numhask-array >= 0.7 && < 0.8,
-    numhask-space >= 0.5 && < 0.6,
-    perf >= 0.7 && < 0.8,
-    text >= 1.2,
-    transformers >= 0.5,
-    unordered-containers,
-    web-rep >= 0.6 && < 0.7,
-    massiv >= 0.5.3.2,
+    numhask >= 0.7 && < 0.8,
+    numhask-array >= 0.8 && < 0.9,
+    massiv >= 0.5.6.0,
     vector,
   exposed-modules:
     NumHask.Array.Massive
   other-modules:
   default-language: Haskell2010
 
-executable numhask-massive
-  main-is: numhask-massive.hs
-  hs-source-dirs: app
-  build-depends:
-    base >= 4.7 && < 5,
-    numhask >= 0.6 && < 0.7,
-    numhask-massive
-  default-language: Haskell2010
-  default-extensions:
-    NegativeLiterals
-    NoImplicitPrelude
-    OverloadedStrings
-    UnicodeSyntax
-  ghc-options:
-    -funbox-strict-fields
-    -fforce-recomp
-    -threaded
-    -rtsopts
-    -with-rtsopts=-N
-
-test-suite test
-  type: exitcode-stdio-1.0
-  main-is: test.hs
-  hs-source-dirs:
-    test
-  build-depends:
-    base >=4.7 && <5,
-    doctest,
-    numhask >= 0.6 && < 0.7,
-    numhask-massive
-  default-language: Haskell2010
-  default-extensions:
-    NoImplicitPrelude
-    NegativeLiterals
-    OverloadedStrings
-    UnicodeSyntax
-  ghc-options:
-    -Wall
-    -Wcompat
-    -Wincomplete-record-updates
-    -Wincomplete-uni-patterns
-    -Wredundant-constraints
